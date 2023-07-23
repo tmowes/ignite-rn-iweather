@@ -15,7 +15,7 @@ export function SelectList(props: SelectListProps) {
         isLoading={isLoading}
         value={value}
       />
-      <View style={styles.options}>
+      <View testID="options" style={styles.options}>
         {data.map((item) => (
           <TouchableOpacity
             key={item.latitude}

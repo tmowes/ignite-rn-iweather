@@ -10,7 +10,9 @@ export function Input(props: InputProps) {
   return (
     <View style={styles.container}>
       <TextInput style={styles.input} placeholderTextColor={theme.colors.gray_400} {...attrs} />
-      {isLoading && <ActivityIndicator color={theme.colors.blue_light} />}
+      {isLoading && (
+        <ActivityIndicator testID="activity-indicator" color={theme.colors.blue_light} />
+      )}
     </View>
   )
 }

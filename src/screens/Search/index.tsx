@@ -5,7 +5,8 @@ import Logo from '@assets/logo.svg'
 import bg from '@assets/background.png'
 import { useCity } from '@hooks/useCity'
 import { SelectList } from '@components/SelectList'
-import { CityProps, getCityByNameService } from '@services/getCityByNameService'
+import { getCityByNameService } from '@services/getCityByNameService'
+import { CityProps } from '@services/getCityByNameService/types'
 
 import { styles } from './styles'
 
@@ -48,7 +49,7 @@ export function Search() {
 
         <View style={styles.content}>
           <Text style={styles.title}>
-            Boas vindas ao <Text style={styles.brand}>ignite-rn-iweather</Text>
+            Boas vindas ao <Text style={styles.brand}>iWeather</Text>
           </Text>
 
           <Text style={styles.subtitle}>Escolha um local para ver a previsão do tempo</Text>

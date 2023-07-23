@@ -3,53 +3,19 @@ import dayjs from 'dayjs'
 import { getNextDays } from '@utils/getNextDays'
 import { WeatherIconsKeysProps, weatherIcons } from '@utils/weatherIcons'
 import { DayData } from '@components/Day/types'
-import { WeatherToday } from '@components/WeatherToday/types'
-import { WeatherDetails } from '@components/WeatherDetails/types'
+import { api } from '@services/api'
 
-import { api } from './api'
+import { SearchCityWeatherProps, WeatherAPIResponseProps, WeatherResponseProps } from './types'
 
-export interface WeatherAPIResponseProps {
-  list: {
-    pop: number
-    dt_txt: string
-    main: {
-      temp: number
-      temp_min: number
-      temp_max: number
-      feels_like: number
-      humidity: number
-      temp_kf: number
-    }
-    wind: {
-      speed: number
-    }
-    weather: {
-      description: string
-      main: WeatherIconsKeysProps
-    }[]
-  }[]
-}
+export async function getWeatherByCityService(
+  props: SearchCityWeatherProps,
+): Promise<WeatherResponseProps> {
+  const { latitude, longitude } = props
 
-type SearchCityWeatherProps = {
-  latitude: number
-  longitude: number
-}
-
-export type WeatherResponseProps = {
-  today: {
-    weather: WeatherToday
-    details: WeatherDetails
-  }
-  nextDays: DayData[]
-}
-
-export async function getWeatherByCityService({
-  latitude,
-  longitude,
-}: SearchCityWeatherProps): Promise<WeatherResponseProps> {
   const { data } = await api.get<WeatherAPIResponseProps>(
     `/forecast?lat=${latitude}&lon=${longitude}`,
   )
+
   const { main, weather, wind, pop } = data.list[0]
 
   const today = {

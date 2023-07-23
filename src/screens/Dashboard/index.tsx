@@ -2,16 +2,15 @@ import { useCallback, useEffect, useState } from 'react'
 import { ScrollView, View } from 'react-native'
 
 import { useCity } from '@hooks/useCity'
-import { CityProps, getCityByNameService } from '@services/getCityByNameService'
-import {
-  WeatherResponseProps,
-  getWeatherByCityService,
-} from '@services/getWeatherByCityService'
+import { getCityByNameService } from '@services/getCityByNameService'
+import { getWeatherByCityService } from '@services/getWeatherByCityService'
 import { Loading } from '@components/Loading'
 import { NextDays } from '@components/NextDays'
 import { SelectList } from '@components/SelectList'
 import { WeatherToday } from '@components/WeatherToday'
 import { WeatherDetails } from '@components/WeatherDetails'
+import { CityProps } from '@services/getCityByNameService/types'
+import { WeatherResponseProps } from '@services/getWeatherByCityService/types'
 
 import { styles } from './styles'
 
@@ -63,7 +62,7 @@ export function Dashboard() {
 
   useEffect(() => {
     getWeatherDetails()
-  }, [city, getWeatherDetails])
+  }, [getWeatherDetails])
 
   if (isWeatherLoading || cityIsLoading || !city) {
     return <Loading />

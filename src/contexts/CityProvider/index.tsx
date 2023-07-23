@@ -2,7 +2,7 @@ import { createContext, useEffect, useMemo, useState } from 'react'
 
 import { getStorageCity, saveStorageCity } from '@libs/asyncStorage/cityStorage'
 
-import { CityProps } from '@services/getCityByNameService'
+import { CityProps } from '@services/getCityByNameService/types'
 
 import { CityContextData, CityProviderProps } from './types'
 

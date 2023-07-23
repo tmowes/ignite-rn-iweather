@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { CityProps } from '@services/getCityByNameService'
+import { CityProps } from '@services/getCityByNameService/types'
 
 export type CityProviderProps = {
   children: ReactNode

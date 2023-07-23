@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import { CityProps } from '@services/getCityByNameService'
+import { CityProps } from '@services/getCityByNameService/types'
 
 const STORAGE_KEY = '@ignite-rn-iweather:city'
 
