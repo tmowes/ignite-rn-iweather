@@ -1,5 +1,6 @@
 {
   "preset": "jest-expo",
+  "bail": true,
   "testPathIgnorePatterns": [
     "__tests__/examples/*",
     "__tests__/coverage/*",

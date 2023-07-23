@@ -10,6 +10,7 @@ export function SelectList(props: SelectListProps) {
   return (
     <View style={styles.container}>
       <Input
+        testID="search-input"
         placeholder={placeholder}
         onChangeText={onChange}
         isLoading={isLoading}
